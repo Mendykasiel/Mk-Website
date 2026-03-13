@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK Audit &amp; Advisory — ביקורת בונה הצלחה</title>
+  <meta name="description" content="ביקורת פנים, כתיבת נהלים ועמידה ברגולציה לעמותות בישראל. מתמחים בהנחיות רשם העמותות, מניעת שלילת ניהול תקין וייעול תהליכים ארגוניים.">
+  <meta property="og:title" content="MK Audit &amp; Advisory — ביקורת שבונה הצלחה">
+  <meta property="og:description" content="ראש שקט מול רשם העמותות. ביקורת פנים, נהלים וייעול — כדי שתתמקדו בעשייה החברתית שלכם.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Heebo', 'sans-serif'],
+          },
+          colors: {
+            navy: '#0d2b6b',
+            gold: '#C9A96E',
+            'gold-dark': '#A8823A',
+            cream: '#FAF8F4',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f0f5ff;
+      --bg-muted: #e8f0fe;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --text-mid: #334155;
+      --text-soft: #64748b;
+      --accent: #1a56db;
+      --accent-dark: #0d2b6b;
+      --sky: #eff6ff;
+      --sky-mid: #dbeafe;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Heebo', sans-serif; }
+    body {
+      background: var(--bg); color: var(--text);
+      transition: background 0.3s, color 0.3s;
+      overflow-x: hidden; line-height: 1.6;
+    }
+
+    /* ── Responsive section centering ── */
+    section > .max-w-6xl,
+    section > .max-w-3xl,
+    section > .max-w-2xl {
+      padding-inline: clamp(1.25rem, 5vw, 3rem);
+    }
+
+    /* ── Hero — reduce padding on desktop so text column has room ── */
+    @media (min-width: 1024px) {
+      #hero .max-w-6xl { padding-inline: 1.25rem !important; }
+    }
+
+    /* ── Gold divider line ── */
+    .gold-rule {
+      display: block; height: 2px; width: 48px;
+      background: linear-gradient(to left, var(--accent), transparent);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Section separator ── */
+    section { border-top: 1px solid var(--border); }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+
+    .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1); }
+    .faq-icon { transition: transform 0.3s ease; display: inline-block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg-subtle); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    /* ── Hero Logo ── */
+    .hero-logo-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .hero-logo-glow {
+      position: absolute;
+      width: 130%;
+      height: 130%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,86,219,0.15) 0%, rgba(26,86,219,0.04) 55%, transparent 75%);
+      filter: blur(45px);
+      animation: logoGlowPulse 5s ease-in-out infinite;
+    }
+    .hero-logo-img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 460px;
+      object-fit: contain;
+      filter: drop-shadow(0 28px 56px rgba(13,43,107,0.18)) drop-shadow(0 4px 20px rgba(26,86,219,0.15));
+    }
+    @keyframes logoGlowPulse {
+      0%, 100% { opacity: 0.45; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.12); }
+    }
+    /* Hero grid — text 8/12, logo 4/12 */
+    @media (min-width: 1024px) {
+      .hero-cols { grid-template-columns: 8fr 4fr; }
+    }
+  </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Heebo, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-0{bottom:0px}.bottom-\[-50px\]{bottom:-50px}.bottom-\[-60px\]{bottom:-60px}.left-0{left:0px}.left-\[-100px\]{left:-100px}.left-\[-120px\]{left:-120px}.left-\[calc\(12\.5\%\+20px\)\]{left:calc(12.5% + 20px)}.right-0{right:0px}.right-\[-50px\]{right:-50px}.right-\[-60px\]{right:-60px}.right-\[calc\(12\.5\%\+20px\)\]{right:calc(12.5% + 20px)}.top-0{top:0px}.top-8{top:2rem}.top-\[-100px\]{top:-100px}.top-\[-120px\]{top:-120px}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-14{margin-bottom:3.5rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-3{margin-right:0.75rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-6{margin-top:1.5rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-0\.5{height:0.125rem}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-12{height:3rem}.h-16{height:4rem}.h-36{height:9rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-\[300px\]{height:300px}.h-\[380px\]{height:380px}.h-\[400px\]{height:400px}.h-\[520px\]{height:520px}.h-\[70px\]{height:70px}.h-px{height:1px}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-12{width:3rem}.w-16{width:4rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-8{width:2rem}.w-\[300px\]{width:300px}.w-\[380px\]{width:380px}.w-\[400px\]{width:400px}.w-\[520px\]{width:520px}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-6xl{max-width:72rem}.max-w-lg{max-width:32rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.origin-right{transform-origin:right}.translate-y-full{--tw-translate-y:100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-180{--tw-rotate:180deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-x-0{--tw-scale-x:0;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.list-none{list-style-type:none}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-14{gap:3.5rem}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-5{gap:1.25rem}.gap-7{gap:1.75rem}.gap-x-5{column-gap:1.25rem}.gap-y-2{row-gap:0.5rem}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.scroll-smooth{scroll-behavior:smooth}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.object-contain{object-fit:contain}.p-2{padding:0.5rem}.p-5{padding:1.25rem}.p-7{padding:1.75rem}.p-8{padding:2rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-4{padding-bottom:1rem}.pt-5{padding-top:1.25rem}.pt-\[70px\]{padding-top:70px}.text-center{text-align:center}.text-right{text-align:right}.font-sans{font-family:Heebo, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-light{font-weight:300}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[1\.15\]{line-height:1.15}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-wide{letter-spacing:0.025em}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.opacity-20{opacity:0.2}.opacity-30{opacity:0.3}.opacity-50{opacity:0.5}.opacity-\[0\.03\]{opacity:0.03}.opacity-\[0\.04\]{opacity:0.04}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.duration-300{transition-duration:300ms}.hover\:-translate-y-0\.5:hover{--tw-translate-y:-0.125rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:-translate-y-1:hover{--tw-translate-y:-0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:-translate-y-1\.5:hover{--tw-translate-y:-0.375rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:shadow-\[0_12px_40px_rgba\(13\2c 43\2c 107\2c 0\.08\)\]:hover{--tw-shadow:0 12px 40px rgba(13,43,107,0.08);--tw-shadow-colored:0 12px 40px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:shadow-\[0_20px_60px_rgba\(13\2c 43\2c 107\2c 0\.09\)\]:hover{--tw-shadow:0 20px 60px rgba(13,43,107,0.09);--tw-shadow-colored:0 20px 60px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:shadow-\[0_4px_16px_rgba\(0\2c 0\2c 0\2c 0\.06\)\]:hover{--tw-shadow:0 4px 16px rgba(0,0,0,0.06);--tw-shadow-colored:0 4px 16px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:shadow-xl:hover{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.focus\:not-sr-only:focus{position:static;width:auto;height:auto;padding:0;margin:0;overflow:visible;clip:auto;white-space:normal}.focus\:fixed:focus{position:fixed}.focus\:right-4:focus{right:1rem}.focus\:top-4:focus{top:1rem}.focus\:z-50:focus{z-index:50}.focus\:rounded-lg:focus{border-radius:0.5rem}.focus\:bg-brand:focus{--tw-bg-opacity:1;background-color:rgb(26 86 219 / var(--tw-bg-opacity, 1))}.focus\:px-4:focus{padding-left:1rem;padding-right:1rem}.focus\:py-2:focus{padding-top:0.5rem;padding-bottom:0.5rem}.focus\:text-white:focus{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:scale-x-100{--tw-scale-x:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.dark\:block:is(.dark *){display:block}.dark\:hidden:is(.dark *){display:none}@media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}}@media (min-width: 768px){.md\:flex{display:flex}.md\:inline-flex{display:inline-flex}.md\:hidden{display:none}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}}@media (min-width: 1024px){.lg\:block{display:block}.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style></head>
+<body class="font-sans">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:right-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand focus:text-white focus:rounded-lg">דלג לתוכן</a>
+
+<!-- ══════════════════════ NAV ══════════════════════ -->
+<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300" style="background: rgba(var(--bg-rgb, 255,255,255), 0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); box-shadow: none;">
+  <div class="max-w-6xl mx-auto px-5 h-[70px] flex items-center justify-between">
+    <a href="#" class="flex-shrink-0">
+      <img src="logo.png" alt="MK Audit &amp; Advisory" class="h-12 object-contain">
+    </a>
+
+    <ul class="hidden md:flex items-center gap-7 list-none">
+      <li><a href="#services" class="text-sm font-semibold transition-colors duration-200" style="color: var(--text-mid);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-mid)'">שירותים</a></li>
+      <li><a href="#process" class="text-sm font-semibold transition-colors duration-200" style="color: var(--text-mid);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-mid)'">איך זה עובד</a></li>
+      <li><a href="#faq" class="text-sm font-semibold transition-colors duration-200" style="color: var(--text-mid);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-mid)'">שאלות נפוצות</a></li>
+      <li><a href="#contact" class="text-sm font-semibold transition-colors duration-200" style="color: var(--text-mid);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-mid)'">צור קשר</a></li>
+    </ul>
+
+    <div class="flex items-center gap-2">
+      <a href="#contact" class="hidden md:inline-flex items-center gap-2 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all duration-200" style="background: var(--accent-dark); box-shadow: 0 2px 10px rgba(13,43,107,0.3);" onmouseover="this.style.background='#162f6e'; this.style.boxShadow='0 4px 18px rgba(13,43,107,0.45)'" onmouseout="this.style.background='var(--accent-dark)'; this.style.boxShadow='0 2px 10px rgba(13,43,107,0.3)'">
+        קבע שיחת ייעוץ
+      </a>
+      <button id="hamburger" onclick="toggleMenu()" aria-label="תפריט" aria-expanded="false" class="md:hidden p-2 rounded-lg" style="color: var(--text);">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden px-5 py-4 flex flex-col gap-3" style="border-top: 1px solid var(--border); background: var(--bg);">
+    <a href="#services" onclick="closeMenu()" class="font-semibold py-1" style="color: var(--text-mid);">שירותים</a>
+    <a href="#process" onclick="closeMenu()" class="font-semibold py-1" style="color: var(--text-mid);">איך זה עובד</a>
+    <a href="#faq" onclick="closeMenu()" class="font-semibold py-1" style="color: var(--text-mid);">שאלות נפוצות</a>
+    <a href="#contact" onclick="closeMenu()" class="font-semibold py-1" style="color: var(--text-mid);">צור קשר</a>
+    <a href="#contact" onclick="closeMenu()" class="text-center text-white font-bold text-sm py-3 rounded-xl mt-1" style="background: var(--accent-dark);">קבע שיחת ייעוץ חינם</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section id="hero" class="pt-[70px] min-h-screen flex items-center relative overflow-hidden" style="background: var(--bg);">
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-[-120px] left-[-120px] w-[520px] h-[520px] rounded-full opacity-60" style="background: radial-gradient(circle, rgba(26,86,219,0.08) 0%, transparent 70%);"></div>
+    <div class="absolute bottom-[-60px] right-[-60px] w-[380px] h-[380px] rounded-full opacity-40" style="background: radial-gradient(circle, rgba(13,43,107,0.08) 0%, transparent 70%);"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-5 py-20 relative z-10 w-full">
+    <div class="grid hero-cols gap-8 items-center">
+      <div>
+
+        <!-- לוגו מובייל — מוצג רק על מסך קטן -->
+        <div class="flex justify-center lg:hidden mb-10">
+          <img src="לוגו ללא רקע.png" alt="MK Audit &amp; Advisory" class="h-36 object-contain" style="filter: drop-shadow(0 8px 28px rgba(13,43,107,0.2));">
+        </div>
+
+        <h1 class="hero-title opacity-0 font-black leading-[1.15] mb-5" style="font-size: clamp(1.8rem, 3.8vw, 3.3rem); color: var(--text); opacity: 1; transform: translateY(0px);">
+        ראש שקט מול רשם העמותות.<br>
+        <span style="color: #703030; font-size: 0.78em;">מקסימום יעילות, מינימום בירוקרטיה.</span>
+      </h1>
+
+      <p class="hero-sub opacity-0 text-lg leading-relaxed mb-8" style="color: var(--text); opacity: 1; transform: translateY(0px);">
+        לא בטוחים שהעמותה שלכם עומדת בכל הוראות החוק והנחיות הרשם? חוששים מביקורת עומק?<br><br>
+        אנחנו ב-MK מתמחים בהוראות הרגולציה, ועוזרים לעמותות לסדר ולמסד את תהליכי העבודה בארגון, לבנות נהלים שבאמת עובדים בשטח, לתקן ליקויים לפני שהרגולטור מגיע, ולמנוע בזבוז כספים - כדי שתוכלו להתמקד נטו בעשייה החברתית שלכם.
+      </p>
+
+      <div class="hero-ctas opacity-0 flex flex-wrap gap-3 mb-14" style="opacity: 1; transform: translateY(0px);">
+        <a href="#contact" class="inline-flex items-center gap-2 text-white font-bold text-base px-7 py-3.5 rounded-xl transition-all duration-200 hover:-translate-y-0.5" style="background: var(--accent-dark); box-shadow: 0 4px 20px rgba(13,43,107,0.3);">
+          לתיאום פגישת היכרות ללא עלות
+          <svg class="w-4 h-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path></svg>
+        </a>
+        <a href="#services" class="inline-flex items-center gap-2 font-semibold text-base px-7 py-3.5 rounded-xl transition-all duration-200 hover:-translate-y-0.5" style="border: 1px solid var(--border); color: var(--text-mid);">
+          השירותים שלנו
+        </a>
+      </div>
+
+      <div class="hero-stats opacity-0 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold" style="color: var(--text); opacity: 1; transform: translateY(0px);">
+        <span class="flex items-center gap-1.5"><svg class="w-4 h-4 flex-shrink-0" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>התמחות בעמותות והנחיות רשם העמותות</span>
+        <span class="flex items-center gap-1.5"><svg class="w-4 h-4 flex-shrink-0" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>מניעת שלילת ניהול תקין</span>
+        <span class="flex items-center gap-1.5"><svg class="w-4 h-4 flex-shrink-0" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>ייעול תהליכים ארגוניים</span>
+      </div>
+
+      </div><!-- /col-text -->
+
+      <!-- לוגו דסקטופ — צד שמאל, אנימציה צפה -->
+      <div class="hidden lg:flex items-center justify-end">
+        <div class="hero-logo-wrap" style="transform: translateY(-0.0942569px);">
+          <div class="hero-logo-glow"></div>
+          <img id="hero-logo" src="לוגו ללא רקע.png" alt="MK Audit &amp; Advisory" class="hero-logo-img" style="opacity: 1; transform: scale(1);">
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+  </div>
+</section>
+
+<!-- ══════════════════════ PROBLEM ══════════════════════ -->
+<section class="py-20" style="background: var(--bg-subtle);">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center mb-12 reveal active">
+      <h2 class="font-black mb-3" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--text);">האתגרים שכל מנכ"ל עמותה מכיר מקרוב</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="reveal reveal-d1 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(13,43,107,0.08)] active" style="background: var(--bg); border: 1px solid var(--border);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 mx-auto" style="background: #fff7ed;">
+          <svg class="w-6 h-6" style="color: #f97316;" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"></path></svg>
+        </div>
+        <h3 class="font-black text-lg mb-2" style="color: var(--text);">תקציב שמתבזבז על חוסר סדר</h3>
+        <p class="text-sm leading-relaxed" style="color: var(--text);">חוסר במיסוד תהליכי העבודה עלול ליצור כפילויות, הזמנות מספקים יקרים מדי או פספוס הזדמנויות או קנסות מיותרים. כסף שהיה צריך ללכת למטרת העמותה הולך לאיבוד על תפעול לקוי.</p>
+      </div>
+
+      <div class="reveal reveal-d2 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(13,43,107,0.08)] active" style="background: var(--bg); border: 1px solid var(--border);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 mx-auto" style="background: #fff1f2;">
+          <svg class="w-6 h-6" style="color: #e11d48;" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
+        </div>
+        <h3 class="font-black text-lg mb-2" style="color: var(--text);">הפחד מביקורת של רשם העמותות</h3>
+        <p class="text-sm leading-relaxed" style="color: var(--text);">דרישות הרשם, חוק הגנת הפרטיות, ממשל תאגידי - קשה מאוד לעקוב אחרי הכל. החשש לאבד את אישור הניהול התקין בגלל טעות טכנית נמצא שם תמיד.</p>
+      </div>
+
+      <div class="reveal reveal-d3 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(13,43,107,0.08)] active" style="background: var(--bg); border: 1px solid var(--border);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 mx-auto" style="background: #f5f3ff;">
+          <svg class="w-6 h-6" style="color: #7c3aed;" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"></path></svg>
+        </div>
+        <h3 class="font-black text-lg mb-2" style="color: var(--text);">כל הידע נמצא בראש של אדם אחד</h3>
+        <p class="text-sm leading-relaxed" style="color: var(--text);">אין נהלים כתובים. כשעובד או מתנדב מפתח עוזבים, כל הזיכרון הארגוני הולך איתם - וכל גיוס חדש דורש להמציא את הגלגל מחדש.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ SERVICES ══════════════════════ -->
+<section id="services" class="py-24" style="background: var(--bg);">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center mb-12 reveal active">
+      <h2 class="font-black mb-3" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--text);">מה אנחנו עושים בפועל?</h2>
+      <p class="text-base max-w-lg mx-auto" style="color: var(--text);">שלושה תחומי ליבה שעוזרים לעמותה לעבוד מסודר, לחסוך כסף,&nbsp;<div>ולמנהלים - לישון בלילה בשקט</div></p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="reveal reveal-d1 group relative rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(13,43,107,0.09)] overflow-hidden active" style="background: var(--bg); border: 1px solid var(--border);">
+        <div class="absolute bottom-0 right-0 left-0 h-0.5 origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-300" style="background: linear-gradient(to left, var(--accent-dark), var(--accent));"></div>
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 mx-auto" style="background: var(--sky);">
+          <svg class="w-6 h-6" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path></svg>
+        </div>
+        <h3 class="font-black text-lg mb-3" style="color: var(--text);">ביקורת פנים: לאתר את "החורים בתקציב" ולתקן ליקויים</h3>
+        <p class="text-sm leading-relaxed mb-5" style="color: var(--text);">הביקורת שלנו לא נועדה רק לסמן "וי" לרגולטור. אנחנו בודקים את ההתנהלות הפיננסית והתפעולית שלכם כדי למצוא איפה אפשר לחסוך, ואיפה יש טעויות שעלולות לסבך אתכם בעתיד. בסוף התהליך — דוח פרקטי עם מה שצריך לתקן.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs font-bold px-2.5 py-1 rounded-lg" style="background: var(--sky); color: var(--accent);">ביקורת פנים</span>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-lg" style="background: var(--sky); color: var(--accent);">דוח ממצאים</span>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-lg" style="background: var(--sky); color: var(--accent);">חיסכון תקציבי</span>
+        </div>
+      </div>
+
+      <div class="reveal reveal-d2 group relative rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(13,43,107,0.09)] overflow-hidden active" style="background: var(--bg); border: 1px solid var(--border);">
+        <div class="absolute bottom-0 right-0 left-0 h-0.5 origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-300" style="background: linear-gradient(to left, var(--accent-dark), var(--accent));"></div>
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 mx-auto" style="background: var(--sky);">
+          <svg class="w-6 h-6" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"></path></svg>
+        </div>
+        <h3 class="font-black text-lg mb-3" style="color: var(--text);">עמידה בחוק והנחיות רשם העמותות, והגנת הפרטיות</h3>
+        <p class="text-sm leading-relaxed mb-5" style="color: var(--text);">בדיקה מקיפה שמוודאת שאתם מוכנים לכל ביקורת של רשם העמותות. הסדרת מאגרי המידע של התורמים והמוטבים, פרוטוקולים מסודרים לוועד המנהל, וווידוא שאישור הניהול התקין שלכם בטוח.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs font-bold px-2.5 py-1 rounded-lg" style="background: var(--sky); color: var(--accent);">ניהול תקין</span>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-lg" style="background: var(--sky); color: var(--accent);">הגנת פרטיות</span>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-lg" style="background: var(--sky); color: var(--accent);">ועד מנהל</span>
+        </div>
+      </div>
+
+      <div class="reveal reveal-d3 group relative rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(13,43,107,0.09)] overflow-hidden active" style="background: var(--bg); border: 1px solid var(--border);">
+        <div class="absolute bottom-0 right-0 left-0 h-0.5 origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-300" style="background: linear-gradient(to left, var(--accent-dark), var(--accent));"></div>
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 mx-auto" style="background: var(--sky);">
+          <svg class="w-6 h-6" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125Z"></path></svg>
+        </div>
+        <h3 class="font-black text-lg mb-3" style="color: var(--text);">כתיבת נהלים: לעשות סדר בתפעול ובכוח האדם</h3>
+        <p class="text-sm leading-relaxed mb-5" style="color: var(--text);">לוקחים את הבלאגן והופכים אותו לשיטת עבודה ברורה. אנחנו כותבים עבורכם נהלי רכש, כספים, קליטת עובדים ומתנדבים — ומהפכים את העמותה לארגון שעובד מסודר, גם כשאנשי צוות מתחלפים.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs font-bold px-2.5 py-1 rounded-lg" style="background: var(--sky); color: var(--accent);">נהלי רכש</span>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-lg" style="background: var(--sky); color: var(--accent);">קליטת עובדים</span>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-lg" style="background: var(--sky); color: var(--accent);">נהלי כספים</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ PROCESS ══════════════════════ -->
+<section id="process" class="py-24" style="background: var(--bg-subtle);">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center mb-12 reveal active">
+      <span class="inline-block font-bold text-xs px-3 py-1 rounded-full mb-3 uppercase tracking-wide" style="background: var(--sky); color: var(--accent); border: 1px solid var(--sky-mid);">תהליך העבודה</span>
+      <h2 class="font-black mb-3" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--text);">מהאבחון ועד ליישום — ארבעה שלבים</h2>
+      <p class="text-base" style="color: var(--text);">תהליך ברור, שקוף ומוגדר מראש — בלי הפתעות</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 relative">
+      <div class="hidden lg:block absolute top-8 right-[calc(12.5%+20px)] left-[calc(12.5%+20px)] h-px opacity-20" style="background: linear-gradient(to left, var(--accent-dark), var(--accent));"></div>
+
+      <div class="reveal reveal-d1 text-center px-3 active">
+        <div class="w-16 h-16 rounded-2xl text-white font-black text-2xl flex items-center justify-center mx-auto mb-5 hover:scale-110 transition-transform duration-300 relative z-10" style="background: linear-gradient(135deg, var(--accent-dark), var(--accent)); box-shadow: 0 6px 20px rgba(13,43,107,0.35);">1</div>
+        <h3 class="font-black text-base mb-2" style="color: var(--text);">שיחה פתוחה (ללא עלות)</h3>
+        <p class="text-sm leading-relaxed" style="color: var(--text);">נפגשים להבין איפה כואב לכם. מה המצב מול הרשם, איפה הכסף מתבזבז, ומה הכי דחוף לסדר עכשיו.</p>
+      </div>
+      <div class="reveal reveal-d2 text-center px-3 active">
+        <div class="w-16 h-16 rounded-2xl text-white font-black text-2xl flex items-center justify-center mx-auto mb-5 hover:scale-110 transition-transform duration-300 relative z-10" style="background: linear-gradient(135deg, var(--accent-dark), var(--accent)); box-shadow: 0 6px 20px rgba(13,43,107,0.35);">2</div>
+        <h3 class="font-black text-base mb-2" style="color: var(--text);">צוללים למסמכים ולשטח</h3>
+        <p class="text-sm leading-relaxed" style="color: var(--text);">עוברים על הספרים, על הנהלים הקיימים (אם יש), מדברים עם בעלי התפקידים וממפים את נקודות החולשה בארגון.</p>
+      </div>
+      <div class="reveal reveal-d3 text-center px-3 active">
+        <div class="w-16 h-16 rounded-2xl text-white font-black text-2xl flex items-center justify-center mx-auto mb-5 hover:scale-110 transition-transform duration-300 relative z-10" style="background: linear-gradient(135deg, var(--accent-dark), var(--accent)); box-shadow: 0 6px 20px rgba(13,43,107,0.35);">3</div>
+        <h3 class="font-black text-base mb-2" style="color: var(--text);">דוח תכל'ס ותוכנית עבודה</h3>
+        <p class="text-sm leading-relaxed" style="color: var(--text);">תמונת מצב ברורה בגובה העיניים. מה עובד טוב, איפה יש סכנה לליקויים מול הרשם, ואיפה אפשר לייעל ולחסוך תקציב.</p>
+      </div>
+      <div class="reveal reveal-d4 text-center px-3 active">
+        <div class="w-16 h-16 rounded-2xl text-white font-black text-2xl flex items-center justify-center mx-auto mb-5 hover:scale-110 transition-transform duration-300 relative z-10" style="background: linear-gradient(135deg, var(--accent-dark), var(--accent)); box-shadow: 0 6px 20px rgba(13,43,107,0.35);">4</div>
+        <h3 class="font-black text-base mb-2" style="color: var(--text);">עוזרים לכם להטמיע</h3>
+        <p class="text-sm leading-relaxed" style="color: var(--text);">לא משאירים אתכם לבד עם המשימות. מלווים את הצוות ואת הוועד המנהל בהטמעת הנהלים החדשים ומיסוד התהליכים.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ WHY US ══════════════════════ -->
+<section class="py-24" style="background: var(--bg);">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="max-w-3xl mx-auto">
+      <div>
+        <div class="reveal active">
+          <h2 class="font-black leading-tight mb-8 text-center" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--text);">למה MK Audit &amp; Advisory</h2>
+        </div>
+        <div class="space-y-3">
+          <div class="reveal reveal-d1 flex flex-col items-center text-center gap-3 rounded-xl p-5 transition-all duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] active" style="background: var(--bg-subtle); border: 1px solid var(--border);">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: var(--sky);">
+              <svg class="w-5 h-5" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"></path></svg>
+            </div>
+            <div>
+              <h4 class="font-black text-base mb-1" style="color: var(--text);">לא מבזבזים לכם את הזמן</h4>
+              <p class="text-sm leading-relaxed" style="color: var(--text);">אנחנו מכירים את דרישות הרשם ואת הדינמיקה של עמותות בעל פה, ולכן העבודה איתנו מהירה, מקצועית וממוקדת.</p>
+            </div>
+          </div>
+          <div class="reveal reveal-d2 flex flex-col items-center text-center gap-3 rounded-xl p-5 transition-all duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] active" style="background: var(--bg-subtle); border: 1px solid var(--border);">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: var(--sky);">
+              <svg class="w-5 h-5" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"></path></svg>
+            </div>
+            <div>
+              <h4 class="font-black text-base mb-1" style="color: var(--text);">חיסכון בעלויות</h4>
+              <p class="text-sm leading-relaxed" style="color: var(--text);">המטרה שלנו היא שתסיימו את התהליך עם ארגון יעיל יותר, שמוציא פחות כסף על טעויות תפעוליות ויותר על עשייה.</p>
+            </div>
+          </div>
+          <div class="reveal reveal-d3 flex flex-col items-center text-center gap-3 rounded-xl p-5 transition-all duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] active" style="background: var(--bg-subtle); border: 1px solid var(--border);">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: var(--sky);">
+              <svg class="w-5 h-5" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"></path></svg>
+            </div>
+            <div>
+              <h4 class="font-black text-base mb-1" style="color: var(--text);">לא משאירים לכם דוח במגירה</h4>
+              <p class="text-sm leading-relaxed" style="color: var(--text);">אנחנו לא מגישים מסמך מסובך ונעלמים. עובדים יחד עם ההנהלה והצוות כדי לוודא שההמלצות והנהלים מיושמים בשטח.</p>
+            </div>
+          </div>
+          <div class="reveal reveal-d4 flex flex-col items-center text-center gap-3 rounded-xl p-5 transition-all duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] active" style="background: var(--bg-subtle); border: 1px solid var(--border);">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: var(--sky);">
+              <svg class="w-5 h-5" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"></path></svg>
+            </div>
+            <div>
+              <h4 class="font-black text-base mb-1" style="color: var(--text);">הגנה מלאה מפני סיכונים</h4>
+              <p class="text-sm leading-relaxed" style="color: var(--text);">עמידה בכל דרישות רשם העמותות ושמירה על אישור ניהול תקין ורציף</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FAQ ══════════════════════ -->
+<section id="faq" class="py-24" style="background: var(--bg-subtle);">
+  <div class="max-w-3xl mx-auto px-5">
+    <div class="text-center mb-10 reveal active">
+      <h2 class="font-black mb-2" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--text);">שאלות נפוצות</h2>
+    </div>
+
+    <div class="space-y-2.5">
+      <div class="faq-item reveal rounded-xl overflow-hidden active" style="background: var(--bg); border: 1px solid var(--border);">
+        <button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-right transition-colors" style="color: var(--text);" aria-expanded="false">
+          <span class="font-bold text-sm">האם אנחנו חייבים לעבור ביקורת פנים?</span>
+          <span class="faq-icon text-xl font-light flex-shrink-0 mr-3" style="color: var(--text);">+</span>
+        </button>
+        <div class="faq-content"><p class="px-5 pb-4 text-sm leading-relaxed" style="color: var(--text);">לפי החוק, עמותות עם מחזור של מעל 10 מיליון ש"ח חייבות למנות מבקר פנים. הבעיה? הרבה עמותות ממנות מישהו רק כדי "לסמן וי" על הדרישה, ומקבלות אפס ערך מוסף. אנחנו מאמינים שביקורת לא צריכה להיות חותמת גומי בשביל הרשם. כשהיא נעשית נכון, היא כלי שעושה סדר בארגון וחוסך כסף.</p></div>
+      </div>
+
+      <div class="faq-item reveal reveal-d1 rounded-xl overflow-hidden active" style="background: var(--bg); border: 1px solid var(--border);">
+        <button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-right transition-colors" style="color: var(--text);" aria-expanded="false">
+          <span class="font-bold text-sm">איך עבודה על נהלים באמת חוסכת לנו כסף?</span>
+          <span class="faq-icon text-xl font-light flex-shrink-0 mr-3" style="color: var(--text);">+</span>
+        </button>
+        <div class="faq-content"><p class="px-5 pb-4 text-sm leading-relaxed" style="color: var(--text);">פשוט מאוד: חוסר סדר עולה כסף. כשאין נוהל רכש — קונים יקר ומשלמים על כפילויות. כשאין נוהל שכר — מבזבזים ימי עבודה יקרים של ההנהלה על כל עובד או מתנדב שמתחלף. נהלים ברורים סוגרים את הפינות האלה ומונעים מהתקציב שלכם לדלוף על תפעול לקוי.</p></div>
+      </div>
+
+      <div class="faq-item reveal reveal-d2 rounded-xl overflow-hidden active" style="background: var(--bg); border: 1px solid var(--border);">
+        <button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-right transition-colors" style="color: var(--text);" aria-expanded="false">
+          <span class="font-bold text-sm">מה קורה אם אנחנו מגלים שיש לנו ליקויים חמורים?</span>
+          <span class="faq-icon text-xl font-light flex-shrink-0 mr-3" style="color: var(--text);">+</span>
+        </button>
+        <div class="faq-content"><p class="px-5 pb-4 text-sm leading-relaxed" style="color: var(--text);">התפקיד שלנו הוא להגן עליכם. אם נמצא ליקוי משמעותי, נשקף לכם אותו מיד, ונבנה יחד תוכנית פעולה מהירה כדי לתקן אותו לפני שרשם העמותות יגלה אותו בביקורת עומק פתאומית ויאיים על אישור הניהול התקין שלכם.</p></div>
+      </div>
+
+      <div class="faq-item reveal reveal-d3 rounded-xl overflow-hidden active" style="background: var(--bg); border: 1px solid var(--border);">
+        <button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-right transition-colors" style="color: var(--text);" aria-expanded="false">
+          <span class="font-bold text-sm">האם אתם עובדים גם עם עמותות קטנות?</span>
+          <span class="faq-icon text-xl font-light flex-shrink-0 mr-3" style="color: var(--text);">+</span>
+        </button>
+        <div class="faq-content"><p class="px-5 pb-4 text-sm leading-relaxed" style="color: var(--text);">בהחלט. אנחנו מתאימים את היקף העבודה והתמחור בדיוק לגודל ולצרכים שלכם. לא נייצר לכם "ספר נהלים" ענק של תאגיד שיחנוק אתכם בבירוקרטיה, אלא רק את הכלים הפרקטיים שאתם צריכים כדי לעבוד מסודר ולישון בשקט.</p></div>
+      </div>
+
+      <div class="faq-item reveal reveal-d4 rounded-xl overflow-hidden active" style="background: var(--bg); border: 1px solid var(--border);">
+        <button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-right transition-colors" style="color: var(--text);" aria-expanded="false">
+          <span class="font-bold text-sm">כמה עולה הביקורת?</span>
+          <span class="faq-icon text-xl font-light flex-shrink-0 mr-3" style="color: var(--text);">+</span>
+        </button>
+        <div class="faq-content"><p class="px-5 pb-4 text-sm leading-relaxed" style="color: var(--text);">המחיר משתנה בהתאם לגודל העמותה, היקף הפעילות ורמת המורכבות. מציעים הצעת מחיר מותאמת אישית לאחר שיחת ייעוץ ראשונית — ללא עלות וללא התחייבות.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ CONTACT / CTA ══════════════════════ -->
+<section id="contact" class="py-24 relative overflow-hidden" style="background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] rounded-full" style="background: rgba(255,255,255,0.04); filter: blur(60px);"></div>
+    <div class="absolute bottom-[-50px] right-[-50px] w-[300px] h-[300px] rounded-full" style="background: rgba(255,255,255,0.04); filter: blur(60px);"></div>
+  </div>
+
+  <div class="max-w-2xl mx-auto px-5 relative z-10">
+    <div class="text-center reveal active">
+      <span class="inline-block font-bold text-xs px-4 py-1.5 rounded-full mb-5" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #ffffff;">ללא עלות · ללא התחייבות</span>
+      <h2 class="text-white font-black mb-4 leading-tight" style="font-size: clamp(1.8rem,4vw,2.8rem);">בואו נוודא שהעמותה שלכם מוכנה לביקורת</h2>
+      <p class="text-lg leading-relaxed mb-8 max-w-lg mx-auto" style="color: #ffffff;">השאירו פרטים ונחזור אליכם בהקדם לשיחת היכרות קצרה — ללא עלות וללא התחייבות.</p>
+    </div>
+
+    <!-- טופס יצירת קשר — Formspree -->
+    <form id="contact-form" class="reveal reveal-d1 active"
+          action="https://formspree.io/f/xnjgzqeg"
+          method="POST"
+          onsubmit="handleFormSubmit(event)">
+      <div id="form-fields">
+        <div class="grid sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" style="color: #ffffff;">שם מלא *</label>
+            <input type="text" name="name" required placeholder="ישראל ישראלי"
+              class="w-full rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200"
+              style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #fff; outline: none;"
+              onfocus="this.style.background='rgba(255,255,255,0.18)'; this.style.borderColor='rgba(255,255,255,0.45)'"
+              onblur="this.style.background='rgba(255,255,255,0.12)'; this.style.borderColor='rgba(255,255,255,0.2)'">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" style="color: #ffffff;">טלפון *</label>
+            <input type="tel" name="phone" required placeholder="050-000-0000"
+              class="w-full rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200"
+              style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #fff; outline: none;"
+              onfocus="this.style.background='rgba(255,255,255,0.18)'; this.style.borderColor='rgba(255,255,255,0.45)'"
+              onblur="this.style.background='rgba(255,255,255,0.12)'; this.style.borderColor='rgba(255,255,255,0.2)'">
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-semibold mb-1.5" style="color: #ffffff;">שם העמותה</label>
+          <input type="text" name="organization" placeholder="שם העמותה (אופציונלי)"
+            class="w-full rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200"
+            style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #fff; outline: none;"
+            onfocus="this.style.background='rgba(255,255,255,0.18)'; this.style.borderColor='rgba(255,255,255,0.45)'"
+            onblur="this.style.background='rgba(255,255,255,0.12)'; this.style.borderColor='rgba(255,255,255,0.2)'">
+        </div>
+        <div class="mb-6">
+          <label class="block text-sm font-semibold mb-1.5" style="color: #ffffff;">במה נוכל לעזור?</label>
+          <textarea name="message" rows="3" placeholder="ספרו לנו בקצרה על הצורך שלכם..."
+            class="w-full rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 resize-none"
+            style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #fff; outline: none;"
+            onfocus="this.style.background='rgba(255,255,255,0.18)'; this.style.borderColor='rgba(255,255,255,0.45)'"
+            onblur="this.style.background='rgba(255,255,255,0.12)'; this.style.borderColor='rgba(255,255,255,0.2)'"></textarea>
+        </div>
+        <button type="submit" id="form-submit-btn"
+          class="w-full text-white font-black text-base py-4 rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
+          style="background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);">
+          שלחו את הפרטים — ונחזור אליכם בהקדם ✓
+        </button>
+      </div>
+      <p id="form-success" class="hidden text-center py-8 font-bold text-xl" style="color: #ffffff;">✅ תודה! קיבלנו את הפרטים ונחזור אליכם בקרוב.</p>
+      <p id="form-error" class="hidden text-center mt-4 text-sm" style="color: #fca5a5;">משהו השתבש. נסו שוב או פנו אלינו ישירות.</p>
+    </form>
+
+  </div>
+</section>
+
+<script>
+async function handleFormSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('form-submit-btn');
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+  const error = document.getElementById('form-error');
+  btn.textContent = 'שולח...';
+  btn.disabled = true;
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('form-fields').style.display = 'none';
+      success.classList.remove('hidden');
+    } else {
+      throw new Error();
+    }
+  } catch {
+    error.classList.remove('hidden');
+    btn.textContent = 'שלחו את הפרטים — ונחזור אליכם בהקדם ✓';
+    btn.disabled = false;
+  }
+}
+</script>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer class="py-10 px-5 relative" style="background: var(--accent-dark);">
+  <div class="absolute top-0 right-0 left-0 h-px" style="background: rgba(255,255,255,0.08);"></div>
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
+    <img src="logo-transparent.png" alt="MK Audit &amp; Advisory" class="h-11 object-contain" style="filter: brightness(0) invert(1); opacity: 0.85;">
+    <nav class="flex flex-wrap justify-center gap-5">
+      <a href="#services" class="text-sm font-medium transition-colors" style="color: #ffffff;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#bfdbfe'">שירותים</a>
+      <a href="#process" class="text-sm font-medium transition-colors" style="color: #ffffff;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#bfdbfe'">תהליך העבודה</a>
+      <a href="#contact" class="text-sm font-medium transition-colors" style="color: #ffffff;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#bfdbfe'">צור קשר</a>
+    </nav>
+  </div>
+  <div class="max-w-6xl mx-auto mt-6 pt-5 text-center text-xs" style="border-top: 1px solid rgba(255,255,255,0.12); color: #ffffff;">
+    © <span id="footer-year">2026</span> MK Audit &amp; Advisory · כל הזכויות שמורות · ביקורת בונה הצלחה
+  </div>
+</footer>
+
+</main>
+
+
+<script>
+
+  // Mobile menu
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger');
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden', isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  }
+  function closeMenu() {
+    document.getElementById('mobile-menu').classList.add('hidden');
+    document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+  }
+
+  // Scroll reveal
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); ro.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  // Hero animations
+  anime({ targets: '.hero-badge', opacity: [0,1], translateY: [14,0], easing: 'easeOutExpo', duration: 800, delay: 200 });
+  anime({ targets: '.hero-title', opacity: [0,1], translateY: [22,0], easing: 'easeOutExpo', duration: 900, delay: 350 });
+  anime({ targets: '.hero-sub',   opacity: [0,1], translateY: [18,0], easing: 'easeOutExpo', duration: 900, delay: 500 });
+  anime({ targets: '.hero-ctas',  opacity: [0,1], translateY: [14,0], easing: 'easeOutExpo', duration: 800, delay: 650 });
+  anime({ targets: '.hero-stats', opacity: [0,1], translateY: [14,0], easing: 'easeOutExpo', duration: 800, delay: 800 });
+
+  // Hero logo — כניסה + אנימציה צפה אינסופית
+  const heroLogoEl = document.getElementById('hero-logo');
+  if (heroLogoEl) {
+    anime({
+      targets: heroLogoEl,
+      opacity: [0, 1],
+      scale: [0.72, 1],
+      easing: 'easeOutExpo',
+      duration: 1500,
+      delay: 500,
+      complete: function() {
+        // אחרי כניסה — floating אינסופי על ה-wrapper
+        anime({
+          targets: '.hero-logo-wrap',
+          translateY: [0, -22],
+          direction: 'alternate',
+          loop: true,
+          easing: 'easeInOutSine',
+          duration: 4000
+        });
+      }
+    });
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const content = btn.nextElementSibling;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-content').style.maxHeight = '0px';
+        i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Navbar shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.boxShadow = window.scrollY > 10 ? '0 4px 24px rgba(13,43,107,0.07)' : 'none';
+  }, { passive: true });
+
+  // Footer year
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
+
+<!-- ══════════════════════ EDITOR MODE — פתח עם ?edit=1 ══════════════════════ -->
+
+<style data-editor-only>
+/* ── Toolbar ── */
+#ed-toolbar {
+  position: fixed; top: 0; right: 0; left: 0; z-index: 999999;
+  height: 56px; display: none;
+  background: #0d2b6b; color: #fff;
+  align-items: center; gap: 6px; padding: 0 14px;
+  font-family: 'Heebo', sans-serif; font-size: 13px;
+  box-shadow: 0 2px 16px rgba(0,0,0,.35);
+  flex-wrap: wrap;
+}
+#ed-toolbar.on { display: flex; }
+
+body.editing { padding-top: 56px !important; }
+
+/* Toolbar buttons & controls */
+#ed-toolbar button, #ed-toolbar select, #ed-toolbar input[type=color] {
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22);
+  color: #fff; border-radius: 5px; padding: 3px 8px; cursor: pointer;
+  font-family: inherit; font-size: 12px; height: 30px;
+  transition: background .15s;
+}
+#ed-toolbar button:hover { background: rgba(255,255,255,.25); }
+#ed-toolbar select { padding: 3px 6px; }
+#ed-toolbar input[type=color] { width: 34px; padding: 2px 3px; }
+#ed-toolbar input[type=number] {
+  width: 52px; background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.22); color: #fff;
+  border-radius: 5px; padding: 3px 6px; height: 30px;
+  font-family: inherit; font-size: 12px;
+}
+#ed-sep { width: 1px; height: 28px; background: rgba(255,255,255,.2); margin: 0 4px; flex-shrink: 0; }
+#ed-label { font-weight: 700; font-size: 13px; white-space: nowrap; margin-left: 8px; opacity: .9; }
+#ed-hint  { font-size: 11px; opacity: .55; margin-left: 6px; }
+#ed-spacer { flex: 1; }
+#ed-btn-save { background: #0d2b6b !important; border-color: #1a56db !important; font-weight: 700; }
+#ed-btn-save:hover { background: #1d4ed8 !important; }
+
+/* Contenteditable highlights */
+body.editing [contenteditable] {
+  outline: 2px dashed rgba(99,170,255,.55) !important;
+  border-radius: 3px; cursor: text;
+}
+body.editing [contenteditable]:focus {
+  outline: 2px solid #1a56db !important;
+  background: rgba(26,86,219,.04) !important;
+}
+body.editing a:not([data-edbtn]) { pointer-events: none; }
+body.editing .faq-btn { pointer-events: none; }
+body.editing [contenteditable] { pointer-events: auto !important; }
+body.editing .faq-content { max-height: 600px !important; }
+
+/* Resize handles on block elements */
+body.editing .ed-resizable {
+  position: relative; overflow: visible !important;
+}
+body.editing .ed-resizable::after {
+  content: '↔'; position: absolute; bottom: 2px; left: 2px; /* LTR=left for RTL page */
+  width: 16px; height: 16px; background: #0d2b6b; color: #fff;
+  border-radius: 3px; font-size: 11px; line-height: 16px; text-align: center;
+  cursor: se-resize; z-index: 9999; opacity: .75;
+}
+
+/* Added text boxes */
+.ed-textbox {
+  position: absolute; min-width: 120px; min-height: 40px;
+  background: rgba(255,255,255,.92); border: 2px dashed #1a56db;
+  border-radius: 6px; padding: 8px 12px; font-family: 'Heebo', sans-serif;
+  font-size: 16px; color: #0f172a; z-index: 9000; resize: both; overflow: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,.12);
+  cursor: move;
+}
+.ed-textbox:focus { outline: none; border-color: #1a56db; }
+</style>
+
+<div id="ed-toolbar" data-editor-only>
+  <span id="ed-label">✏ מצב עריכה</span>
+  <span id="ed-hint">לחץ על טקסט לעריכה</span>
+  <span id="ed-sep" style="margin-right:8px"></span>
+
+  <!-- Font family -->
+  <select id="ed-font" title="גופן" onchange="edExecFont(this.value)">
+    <option value="">-- גופן --</option>
+    <option value="Heebo, sans-serif">Heebo</option>
+    <option value="Arial, sans-serif">Arial</option>
+    <option value="Georgia, serif">Georgia</option>
+    <option value="'Courier New', monospace">Courier</option>
+    <option value="'Frank Ruhl Libre', serif">Frank Ruhl</option>
+    <option value="Impact, sans-serif">Impact</option>
+  </select>
+
+  <!-- Font size -->
+  <input id="ed-size" type="number" min="8" max="120" value="16" title="גודל טקסט (px)" style="width:54px">
+  <button onclick="edApplySize()" title="החל גודל">✓</button>
+
+  <!-- Color -->
+  <input id="ed-color" type="color" value="#0f172a" title="צבע טקסט" onchange="edExecColor(this.value)">
+
+  <!-- Bold / Italic / Underline -->
+  <button onclick="document.execCommand('bold')" title="מודגש"><b>B</b></button>
+  <button onclick="document.execCommand('italic')" title="נטוי"><i>I</i></button>
+  <button onclick="document.execCommand('underline')" title="קו תחתון"><u>U</u></button>
+
+  <span id="ed-sep"></span>
+
+  <!-- Add text box -->
+  <button id="ed-btn-addtxt" onclick="edAddTextBox()" title="הוסף תיבת טקסט">＋ תיבת טקסט</button>
+
+  <!-- Enable element resize -->
+  <button id="ed-btn-resize" onclick="edToggleResize()" title="מצב שינוי גודל אלמנטים">⇔ שינוי גודל</button>
+
+  <span id="ed-spacer"></span>
+
+  <span style="font-size:11px;opacity:.5;">Ctrl+S לשמירה</span>
+  <button id="ed-btn-exit" onclick="edExit()" data-edbtn>✕ יציאה</button>
+  <button id="ed-btn-save" onclick="edSave()" data-edbtn>💾 שמור</button>
+</div>
+
+<script data-editor-only>
+!function () {
+  /* ── Only activate when ?edit=1 ── */
+  if (new URLSearchParams(location.search).get('edit') !== '1') return;
+
+  const toolbar = document.getElementById('ed-toolbar');
+  toolbar.classList.add('on');
+  document.body.classList.add('editing');
+
+  /* ── Make text nodes contenteditable ── */
+  const edSelectors = [
+    'h1','h2','h3','h4','h5',
+    'section p','footer p',
+    '.hero-stats span',
+    '.faq-btn span',
+    '.faq-content p',
+    '#contact p',
+    'nav a:not([data-edbtn])',
+    '.service-card h3','.service-card p',
+    '.why-item h4','.why-item p',
+    'footer h3','footer li',
+    '.hero-title','.hero-sub',
+  ];
+  edSelectors.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => {
+      if (!el.closest('[data-editor-only]')) {
+        el.contentEditable = 'true';
+        el.setAttribute('data-ed-ce', '1');
+      }
+    });
+  });
+
+  /* ── Open all FAQ panels ── */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.classList.add('open');
+    const c = item.querySelector('.faq-content');
+    if (c) c.style.maxHeight = '600px';
+  });
+
+  /* ── Keyboard save ── */
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); edSave(); }
+  });
+
+  /* ── Font family ── */
+  window.edExecFont = function(font) {
+    if (!font) return;
+    document.execCommand('fontName', false, font);
+  };
+
+  /* ── Font size (in px via inline style on selection) ── */
+  window.edApplySize = function() {
+    const px = parseInt(document.getElementById('ed-size').value, 10);
+    if (!px || px < 6) return;
+    const sel = window.getSelection();
+    if (!sel.rangeCount || sel.isCollapsed) return;
+    const range = sel.getRangeAt(0);
+    const span = document.createElement('span');
+    span.style.fontSize = px + 'px';
+    try { range.surroundContents(span); } catch(e) {
+      document.execCommand('fontSize', false, '7');
+      document.querySelectorAll('font[size="7"]').forEach(f => {
+        f.removeAttribute('size');
+        f.style.fontSize = px + 'px';
+      });
+    }
+  };
+
+  /* ── Text color ── */
+  window.edExecColor = function(hex) {
+    document.execCommand('foreColor', false, hex);
+  };
+
+  /* ── Add draggable text box ── */
+  let _txCount = 0;
+  window.edAddTextBox = function() {
+    const box = document.createElement('div');
+    box.className = 'ed-textbox';
+    box.contentEditable = 'true';
+    box.setAttribute('data-ed-textbox', ++_txCount);
+    box.style.top  = (120 + window.scrollY) + 'px';
+    box.style.right = '80px';
+    box.textContent = 'הקלד כאן...';
+    document.body.appendChild(box);
+    edMakeDraggable(box);
+    box.focus();
+  };
+
+  /* Drag logic */
+  function edMakeDraggable(el) {
+    let startX, startY, startR, startT;
+    el.addEventListener('mousedown', function(e) {
+      if (e.target !== el) return; // only drag on the box background, not inner text
+      startX = e.clientX; startY = e.clientY;
+      const style = window.getComputedStyle(el);
+      startR = parseInt(el.style.right || style.right) || 0;
+      startT = parseInt(el.style.top  || style.top)   || 0;
+      function onMove(e) {
+        el.style.right = (startR - (e.clientX - startX)) + 'px';
+        el.style.top   = (startT + (e.clientY - startY)) + 'px';
+      }
+      function onUp() {
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseup', onUp);
+      }
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onUp);
+    });
+  }
+
+  /* ── Toggle resize mode on block elements ── */
+  let _resizeMode = false;
+  window.edToggleResize = function() {
+    _resizeMode = !_resizeMode;
+    const btn = document.getElementById('ed-btn-resize');
+    if (_resizeMode) {
+      btn.style.background = '#0d2b6b';
+      document.querySelectorAll(
+        '.service-card, section, .why-item, .faq-item, .hero-logo-wrap, img'
+      ).forEach(el => {
+        if (!el.closest('[data-editor-only]')) {
+          el.classList.add('ed-resizable');
+          el.style.resize = 'both';
+          el.style.overflow = 'auto';
+        }
+      });
+    } else {
+      btn.style.background = '';
+      document.querySelectorAll('.ed-resizable').forEach(el => {
+        el.classList.remove('ed-resizable');
+        el.style.resize = '';
+      });
+    }
+  };
+
+  /* ── Exit editor ── */
+  window.edExit = function() {
+    const url = new URL(location.href);
+    url.searchParams.delete('edit');
+    location.href = url.toString();
+  };
+
+  /* ── Save — overwrite file via File System Access API ── */
+  window.edSave = async function() {
+    const btn = document.getElementById('ed-btn-save');
+    btn.textContent = '⏳ שומר...';
+    btn.disabled = true;
+
+    /* Build clean HTML */
+    const cl = document.documentElement.cloneNode(true);
+    cl.querySelectorAll('[data-editor-only]').forEach(n => n.remove());
+    cl.querySelectorAll('[data-ed-ce]').forEach(n => { n.removeAttribute('contenteditable'); n.removeAttribute('data-ed-ce'); });
+    cl.querySelectorAll('.ed-resizable').forEach(n => { n.classList.remove('ed-resizable'); n.style.resize = ''; });
+    cl.body.classList.remove('editing');
+    /* Close FAQ panels back to closed */
+    cl.querySelectorAll('.faq-item').forEach(item => {
+      item.classList.remove('open');
+      const c = item.querySelector('.faq-content');
+      if (c) c.style.maxHeight = '0px';
+    });
+    const html = '<!DOCTYPE html>\n' + cl.outerHTML;
+
+    /* Try File System Access API (Chrome/Edge) */
+    if (window.showSaveFilePicker) {
+      try {
+        const fh = await window.showSaveFilePicker({
+          suggestedName: 'index.html',
+          types: [{ description: 'HTML', accept: { 'text/html': ['.html'] } }]
+        });
+        const writable = await fh.createWritable();
+        await writable.write(html);
+        await writable.close();
+        btn.textContent = '✅ נשמר!';
+        setTimeout(() => { edExit(); }, 800);
+        return;
+      } catch(e) {
+        if (e.name !== 'AbortError') console.warn('showSaveFilePicker error:', e);
+      }
+    }
+
+    /* Fallback — download */
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([html], {type:'text/html;charset=utf-8'}));
+    a.download = 'index.html';
+    a.click();
+    btn.textContent = '⬇ הורד';
+    btn.disabled = false;
+    setTimeout(() => { btn.textContent = '💾 שמור'; }, 2500);
+  };
+}();
+</script>
+
+
+
+
+</body></html>
